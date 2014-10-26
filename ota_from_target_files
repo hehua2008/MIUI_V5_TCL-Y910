@@ -541,6 +541,11 @@ def LoadSystemFiles(z):
       fn = "data/" + basefilename
       data = z.read(info.filename)
       out[fn] = common.File(fn, data)
+    elif info.filename.startswith("CUSTPACK/"):
+      basefilename = info.filename[9:]
+      fn = "custpack/" + basefilename
+      data = z.read(info.filename)
+      out[fn] = common.File(fn, data)
   return (out, retouch_files)
 
 
